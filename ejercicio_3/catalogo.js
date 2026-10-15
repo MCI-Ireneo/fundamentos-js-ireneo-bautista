@@ -13,9 +13,7 @@ for (let i = 0; i < productos.length; i++) {
     console.log(`${productos[i]} - ${precios[i].toFixed(2)} € (AGOTADO)`);
     agotado++;
   } else {
-    console.log(
-      `${productos[i]} - ${precios[i].toFixed(2)} € (${stock[i]} uds)`,
-    );
+    console.log(`${productos[i]} - ${precios[i].toFixed(2)} € (${stock[i]} uds)`);
   }
   if (precios[i] > precios[mas_caro]) {
     mas_caro = i;
@@ -26,7 +24,5 @@ for (let i = 0; i < productos.length; i++) {
 }
 
 console.log(`Productos agotados ${agotado}`);
-console.log(
-  `Producto más caro: ${productos[mas_caro]} (${precios[mas_caro].toFixed(2)}€)`,
-);
+console.log(`Producto más caro: ${productos[mas_caro]} (${precios[mas_caro].toFixed(2)}€)`);
 console.log(valor_inventarioTemp.toFixed(2));
