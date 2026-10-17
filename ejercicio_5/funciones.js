@@ -61,9 +61,21 @@ const contarAgotados = function (stock) {
   return agotados;
 };
 
+const producto_mas_caro = function (productos) {
+  let max_precio = -1;
+  for (let i = 0; i < productos.length; i++) {
+    if (precios[i] > max_precio) {
+      max_precio = precios[i];
+      mas_caro = productos[i];
+    }
+  }
+  return mas_caro;
+};
+
 console.log(calcularImporteLinea(189, 2));
 let resultado1 = calcularImporteLinea(189, 2);
 console.log(calcular_iva(resultado1));
 console.log(calculoDescuento(120));
 console.log(calcular_envio(49.4));
 console.log(contarAgotados(stock));
+console.log(producto_mas_caro(productos));
