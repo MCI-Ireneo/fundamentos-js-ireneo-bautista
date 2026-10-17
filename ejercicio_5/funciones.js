@@ -17,6 +17,18 @@ for (let i = 0; i < productos.length; i++) {
     break;
   }
 }
+const calculoDescuento = function (n1) {
+  const descuento10 = 0.1;
+  const descuento5 = 0.05;
+
+  if (n1 > 50 && n1 <= 100) {
+    resultado = n1 * descuento5;
+  } else if (n1 > 100) {
+    resultado = n1 * descuento10;
+  } else if (n1 <= 0 && n1 <= 50) {
+    resultado = n1;
+  }
+};
 const calcularImporteLinea = function (precio, cantidad) {
   let importe = precio * cantidad;
   return importe;
