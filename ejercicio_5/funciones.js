@@ -71,6 +71,14 @@ const producto_mas_caro = function (productos) {
   }
   return mas_caro;
 };
+const valor_inventario = function (precios, stock) {
+  let valor = 0;
+  for (let i = 0; i < precios.length; i++) {
+    valor_temp = precios[i] * stock[i];
+    valor = valor + valor_temp;
+  }
+  return valor.toFixed(2);
+};
 
 console.log(calcularImporteLinea(189, 2));
 let resultado1 = calcularImporteLinea(189, 2);
@@ -79,3 +87,4 @@ console.log(calculoDescuento(120));
 console.log(calcular_envio(49.4));
 console.log(contarAgotados(stock));
 console.log(producto_mas_caro(productos));
+console.log(valor_inventario(precios, stock));
