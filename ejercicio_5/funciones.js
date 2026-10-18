@@ -7,15 +7,25 @@ const productos = [
 ];
 const precios = [45.99, 19.9, 189.0, 59.95, 34.5];
 const stock = [10, 25, 3, 0, 7];
-let buscador = "Monitor";
-let posicion = -1;
 
-for (let i = 0; i < productos.length; i++) {
-  if (buscador.toLowerCase() === productos[i]) {
-    posicion = i;
-    break;
+const buscarProducto = function (productos, nombre) {
+  let posicion = -1;
+  let buscado = "";
+  const sin_producto = -1;
+  for (let i = 0; i < productos.length; i++) {
+    if (nombre.toLowerCase() === productos[i]) {
+      posicion = i;
+    }
   }
-}
+  if (posicion === sin_producto) {
+    buscado = nombre;
+    return [posicion, buscado];
+  } else {
+    buscado = nombre;
+    return [posicion, buscado];
+  }
+};
+
 const calculoDescuento = function (n1) {
   const descuento10 = 0.1;
   const descuento5 = 0.05;
@@ -88,3 +98,4 @@ console.log(calcular_envio(49.4));
 console.log(contarAgotados(stock));
 console.log(producto_mas_caro(productos));
 console.log(valor_inventario(precios, stock));
+console.log(buscarProducto(productos, "monitor"));
