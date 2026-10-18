@@ -91,10 +91,17 @@ const valor_inventario = function (precios, stock) {
 };
 
 console.log(calcularImporteLinea(189, 2));
-let resultado1 = calcularImporteLinea(189, 2);
-console.log(calcular_iva(resultado1));
+console.log(calcularImporteLinea(45.99, 2));
+console.log("------------------------------");
+console.log(calcular_iva(378));
+console.log(calcular_iva(91.98));
+console.log("------------------------------");
 console.log(calculoDescuento(120));
+console.log(calculoDescuento(55));
+console.log("------------------------------");
 console.log(calcular_envio(49.4));
+console.log(calcular_envio(102));
+console.log("------------------------------");
 console.log(contarAgotados(stock));
 console.log(producto_mas_caro(productos));
 console.log(valor_inventario(precios, stock));
