@@ -7,8 +7,18 @@ const productos = [
 ];
 const precios = [45.99, 19.9, 189.0, 59.95, 34.5];
 const stock = [10, 25, 3, 0, 7];
-const pedidoProductos = ["Ratón", "Monitor", "Auriculares", "Teclado", "Altavoz"];
+const pedidoProductos = [
+  "Ratón".toLowerCase(),
+  "Monitor".toLowerCase(),
+  "Auriculares".toLowerCase(),
+  "Teclado".toLowerCase(),
+  "Altavoz".toLowerCase(),
+];
 const pedidoCantidades = [2, 4, 1, 1, 1];
+const ticketProductos = [];
+const ticketCantidades = [];
+const ticketPrecios = [];
+const sin_producto = -1;
 const catalogo = function (catalogo) {
   for (let i = 0; i < productos.length; i++) {
     catalogo = console.log(`Productos: ${productos[i]} Precio: ${precios[i]}€ Unidades: ${stock[i]}`);
@@ -18,7 +28,6 @@ const catalogo = function (catalogo) {
 const buscarProducto = function (productos, nombre) {
   let posicion = -1;
   let buscado = "";
-  const sin_producto = -1;
   for (let i = 0; i < productos.length; i++) {
     if (nombre.toLowerCase() === productos[i]) {
       posicion = i;
@@ -96,7 +105,23 @@ const valor_inventario = function (precios, stock) {
   }
   return valor.toFixed(2);
 };
+const ticket = function () {
+  for (let i = 0; i < pedidoProductos.length; i++) {
+    const nombre = pedidoProductos[i];
+    const cantidad = pedidoCantidades[i];
+    const [posicion] = buscarProducto(productos, nombre);
 
-console.log(catalogo(catalogo));
+    if (posicion === sin_producto) {
+      console.log("Aviso, producto inexistente");
+    } else if (stock[posicion] === 0) {
+      console.log("Aviso, producto agotado");
+    } else if (cantidad > stock[posicion]) {
+      console.log(`Aviso: solo hay ${stock[posicion]} se pondran ${stock[posicion]}`);
+    } else {
+      console.log("OK");
+    }
+  }
+};
+catalogo();
 console.log("=== Procesando Pedido ===");
-console.log(buscarProducto(productos, "Ratón"));
+ticket();
